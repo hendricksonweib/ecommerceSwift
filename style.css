@@ -95,3 +95,14 @@ section{
     border-style: none;
     border-radius: 5px;
 }
+form{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #333333;
+   padding: 1%;
+}
+footer{
+    background-color: #00A4E4;
+    height: 15%;
+}
