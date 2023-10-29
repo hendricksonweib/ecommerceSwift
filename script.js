@@ -1,7 +1,7 @@
 // Função para adicionar um produto ao carrinho
 function adicionarAoCarrinho(id) {
     // Recupere os dados do produto da seção correspondente no index.html
-    const produto = document.querySelector(`#produto${id}`);
+    const produto = document.querySelector(`#produto${id}`)
 
     // Clone o elemento da seção
     const produtoClonado = produto.cloneNode(true);
