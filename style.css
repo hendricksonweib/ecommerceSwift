@@ -83,6 +83,7 @@ section{
     width: 5%;
     background-color: transparent;
     border-style: none;
+    color: rgb(240, 110, 67);
 }
 .produtoPhoto{
     width: 55%;
@@ -108,4 +109,33 @@ footer{
 }
 h5{
     margin: 1% 8%;
+}
+.carrinho{
+    display: none;
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    background-color: rgb(240, 240, 240);
+    overflow: hidden;
+}
+h3{
+    margin: 1%;
+}
+.adicionado{
+    height: 20%;
+}
+.headerCar{
+    display: flex;
+    justify-content: space-between;
+}
+.back{
+    background-color: #00A4E4;
+    border: none;
+    color: #F2F3F4;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+    margin: 2%;
 }
