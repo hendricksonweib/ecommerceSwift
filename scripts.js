@@ -146,7 +146,7 @@ function renderSubTotal(){
     TotalItems += item.numberOfUnits
   })
 
-  subtotalEl.innerHTML = `Subtotal(${TotalItems}itens): $${totalPrice.toFixed(2)}`
+  subtotalEl.innerHTML = `Subtotal (${TotalItems}itens): $${totalPrice.toFixed(2)}`
   totalItemsInCartEl.innerHTML = TotalItems
 }
 
