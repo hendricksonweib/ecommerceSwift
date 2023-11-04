@@ -21,7 +21,7 @@ const products = [
     id: 2,
     name: "Computador All in One LGin One",
     price: 359.93,
-    instock: 10,
+    instock: 18,
     description:
       "Computador All in One LG 22V30R, Intel Celeron N5100, 8GB, SSD 128GB, Windows Home 11, Tela de 22 Full HD, Branco - 22V30R-L.BY31P2.",
     imgSrc: "./img/allinone.svg",
@@ -81,3 +81,120 @@ const products = [
     imgSrc: "./img/ssd.svg",
   },
 ];
+
+const productsEl = document.querySelector('.products')
+const cartItemsEl = document.querySelector('.cart-items')
+const subtotalEl = document.querySelector('.subtotal')
+const totalItemsInCartEl = document.querySelector('.total-items-in-cart')
+
+function renderProducts (){
+  products.forEach((product)=>{
+    productsEl.innerHTML += `
+    <div class="item">
+    <div class="item-container">
+        <div class="item-img">
+            <img src="${product.imgSrc}" alt="${product.name}">
+        </div>
+        <div class="desc">
+            <h2>${product.name}</h2>
+            <h2><small>$</small>${product.price}</h2>
+            <p>
+            ${product.description}
+            </p>
+        </div>
+        <div class="add-to-wishlist">
+            <img src="./icons/heart.png" alt="add to wish list">
+        </div>
+        <div class="add-to-cart" onclick="addToCart(${product.id})">
+            <img src="./icons/bag-plus.png" alt="add to cart">
+        </div>
+    </div>
+</div>
+    `
+  })  
+}
+renderProducts()
+
+
+ let cart = JSON.parse(localStorage.getItem("CART")) || []
+updateCart()
+
+function addToCart(id){
+  if(cart.some((item) => item.id === id )){
+    alert('Produto já existente no carrinho!')
+  }else{
+    const item = products.find((product) => product.id === id)
+    cart.push({
+      ...item,
+      numberOfUnits:1,
+    })
+  }
+  updateCart()
+}
+
+function updateCart(){
+  renderCartItems()
+  renderSubTotal()
+  localStorage.setItem("CART",JSON.stringify(cart))
+}
+
+
+function renderSubTotal(){
+  let totalPrice = 0 , TotalItems = 0
+  cart.forEach((item) => {
+    totalPrice += item.price * item.numberOfUnits
+    TotalItems += item.numberOfUnits
+  })
+
+  subtotalEl.innerHTML = `Subtotal(${TotalItems}itens): $${totalPrice.toFixed(2)}`
+  totalItemsInCartEl.innerHTML = TotalItems
+}
+
+function renderCartItems(){
+  cartItemsEl.innerHTML = ""
+  cart.forEach((item) => {
+    cartItemsEl.innerHTML += `
+        <div class="cart-item">
+        <div class="item-info" onclick="removeItemFromCart(${item.id})">
+            <img src="${item.imgSrc}" alt="${item.name}">
+            <h4>${item.name}</h4>
+        </div>
+        <div class="unit-price">
+            <small>$</small>${item.price}
+        </div>
+        <div class="units">
+            <div class="btn minus" onclick="chanceNumerOfUnits('minus', ${item.id})">-</div>
+            <div class="number">${item.numberOfUnits}</div>
+            <div class="btn plus"  onclick="chanceNumerOfUnits('plus', ${item.id} )">+</div>           
+        </div>
+    </div>
+    `   
+  })
+}
+
+function removeItemFromCart(id){
+ cart = cart.filter((item) => item.id !== id)
+
+ updateCart()
+
+}
+
+function chanceNumerOfUnits(action, id){
+ cart = cart.map((item) => {
+  let numberOfUnits = item.numberOfUnits
+
+  if(item.id === id){
+    if(action == "minus" && numberOfUnits >1){
+      numberOfUnits--
+    }else if(action=== "plus" && numberOfUnits < item.instock){
+      numberOfUnits++
+    }
+  }
+  return {
+    ...item,
+    numberOfUnits,
+  }
+  })
+
+  updateCart()
+}
