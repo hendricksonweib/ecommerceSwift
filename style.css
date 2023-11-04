@@ -20,10 +20,32 @@ a {
   text-decoration: none;
   color: #000;
 }
+.app-container {
+  width: 100vw;
+  height: 100vh;
+}
+.app-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  z-index: -1;
+}
+.app-bg .left-side {
+  background-color: rgb(255, 255, 255);
+  width: 75%;
+  height: 100%;
+}
+.app-bg .right-side {
+  background-color: rgb(var(--right-side-bg-color));
+  width: 25%;
+  height: 100%;
+}
 header {
   width: 100%;
   height: 100px;
-  background-color: #00A4E4;
   padding: 30px 10%;
   display: flex;
   justify-content: space-between;
@@ -31,6 +53,7 @@ header {
   top: 0;
   left: 0;
   z-index: 99;
+  background-color: #00A4E4;
 }
 header nav ul {
   display: flex;
@@ -59,6 +82,13 @@ header nav ul li.btn img {
   width: 32;
   height: 32px;
 }
+header nav ul li.home a {
+  display: flex;
+  align-items: center;
+}
+header nav ul li.home a img {
+  margin-right: 5px;
+}
 .shopping-bag {
   padding: 10px 5px;
 }
@@ -73,7 +103,7 @@ header nav ul li.btn img {
 .shopping-bag .total-items-in-cart {
   margin-left: 10px;
   padding: 5px;
-  background-color:#FFA500;
+  background-color: rgb(242, 255, 58);
   border-radius: 5px;
 }
 aside{
@@ -164,13 +194,10 @@ main .model {
 .model .product img {
   width: 100%;
 }
-/* products list */
 .products-list {
   width: 100vw;
   height: 100vh;
-
   padding-top: 100px;
-
   display: flex;
 }
 .products {
@@ -249,9 +276,10 @@ main .model {
 .cart {
   height: 100%;
   width: 25%;
+  overflow: auto;
   position: relative;
-  background-color: rgb(194, 195, 196);
-  display: flex;
+  display: block;
+  background-color: #c4c3c3;
 }
 .cart-header {
   display: flex;
@@ -300,13 +328,12 @@ main .model {
 .cart-item .units .btn {
   width: 20px;
   height: 20px;
-  background-color: #FFA500;
+  background-color: rgb(242, 255, 58);
   border-radius: 50%;
-  font-weight: bold;
   cursor: pointer;
-  -webkit-user-select: none;
+  -webkit-user-select: none; 
   -moz-user-select: none; 
-  -ms-user-select: none;
+  -ms-user-select: none; 
 }
 .cart-footer {
   width: 100%;
@@ -327,6 +354,6 @@ main .model {
   background-color: white;
 }
 .cart-footer .checkout {
-  background-color: #FFA500;
+  background-color: rgb(242, 255, 58);
   cursor: pointer;
 }
