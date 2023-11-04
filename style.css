@@ -1,72 +1,35 @@
-/* import fonts */
 @import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
-
-/* VARIABLES */
 :root {
   --bg-color: #fff;
   --link-color: #000;
   --link-size: 1.1rem;
   --right-side-bg-color: 81, 187, 254;
 }
-
-/* General CSS */
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: Rubik;
 }
-
 html {
   font-size: 16px;
   overflow-x: hidden;
+  background-color: #F2F3F4;
 }
-
 a {
   text-decoration: none;
   color: #000;
 }
-
-/* APP CONTAINER */
-.app-container {
-  width: 100vw;
-  height: 100vh;
-}
-
-/* APP BG */
-.app-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  z-index: -1;
-}
-.app-bg .left-side {
-  background-color: rgb(255, 255, 255);
-  width: 75%;
-  height: 100%;
-}
-.app-bg .right-side {
-  background-color: rgb(var(--right-side-bg-color));
-  width: 25%;
-  height: 100%;
-}
-
-/* HEADER */
 header {
   width: 100%;
   height: 100px;
-
+  background-color: #00A4E4;
   padding: 30px 10%;
   display: flex;
   justify-content: space-between;
-
   position: fixed;
   top: 0;
   left: 0;
-
   z-index: 99;
 }
 header nav ul {
@@ -96,14 +59,6 @@ header nav ul li.btn img {
   width: 32;
   height: 32px;
 }
-header nav ul li.home a {
-  display: flex;
-  align-items: center;
-}
-header nav ul li.home a img {
-  margin-right: 5px;
-}
-/* HEADER -> SHOOPING BAG */
 .shopping-bag {
   padding: 10px 5px;
 }
@@ -118,15 +73,19 @@ header nav ul li.home a img {
 .shopping-bag .total-items-in-cart {
   margin-left: 10px;
   padding: 5px;
-  background-color: rgb(242, 255, 58);
+  background-color:#FFA500;
   border-radius: 5px;
 }
-/* MAIN */
+aside{
+  margin: 0;
+    height: 115px;
+    background-color: #FFA500;
+}
+h1{
+  margin: 2% 0% 0% 5%;
+}
 main {
-  width: 100%;
-  background-color: royalblue;
-  position: relative;
-  top: 100px;
+  margin-top: -50px;
 }
 main .products-preview {
   width: 60%;
@@ -141,7 +100,6 @@ main .model {
   right: 0;
   z-index: -1;
 }
-/* PRODUCTS */
 .products-container {
   width: 100%;
   height: 100%;
@@ -158,12 +116,10 @@ main .model {
 .product img {
   width: 100%;
 }
-/* MORE DETAILS */
 .more-details {
   position: absolute;
   bottom: 80px;
   left: 50px;
-
   display: flex;
   align-items: center;
 }
@@ -171,16 +127,12 @@ main .model {
   cursor: pointer;
   display: flex;
   align-items: center;
-
   transform: rotate(-90deg);
-
   font-size: 1.2rem;
 }
 .see-more-btn img {
   width: 80px;
   margin-right: 20px;
-}
-.more-details .description {
 }
 .more-details .description small {
   color: rgb(149, 149, 149);
@@ -191,7 +143,6 @@ main .model {
 .more-details .description h1 small {
   color: #000;
 }
-/* MODEL */
 .model {
   display: flex;
   justify-content: right;
@@ -222,19 +173,15 @@ main .model {
 
   display: flex;
 }
-
-/* PRODUCTS */
 .products {
   height: 100%;
   width: 75%;
-
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: repeat(3, 3fr);
 }
 .products img {
   width: 200px;
-  /* filter: drop-shadow(30px 10px 4px #ddd); */
 }
 .products .item {
   display: flex;
@@ -248,20 +195,15 @@ main .model {
   width: 250px;
   height: 90%;
   background-color: #000;
-
   border-radius: 25px;
-
   position: relative;
 }
 .products .item .item-container .item-img {
   width: 100%;
   height: 60%;
-
   background-color: white;
-
   border: 1px solid #000;
   border-radius: 25px 25px 0 0;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -269,42 +211,30 @@ main .model {
 .products .item .item-container .desc {
   width: 100%;
   color: #fff;
-
   padding: 10px;
 }
 .products .item .item-container .add-to-cart {
   background-color: rgba(var(--right-side-bg-color), 0.7);
-  /* background-color: rgb(242, 255, 58); */
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: absolute;
   top: 10px;
   right: 10px;
-
   padding: 5px;
-
   border-radius: 50%;
-
   cursor: pointer;
 }
 .products .item .item-container .add-to-wishlist {
   background-color: rgba(255, 21, 21, 0.7);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: absolute;
   top: 10px;
   right: 60px;
-
   padding: 5px;
-
   border-radius: 50%;
-
   cursor: pointer;
 }
 .products .item .item-container .add-to-cart img {
@@ -314,29 +244,25 @@ main .model {
 .products .item .item-container .add-to-wishlist img {
   width: 32px;
   height: 32px;
-
   padding: 5px;
 }
-/* CART */
 .cart {
   height: 100%;
   width: 25%;
-
   position: relative;
+  background-color: rgb(194, 195, 196);
+  display: flex;
 }
-/* cart header */
 .cart-header {
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
 }
-/* cart items */
 .cart-items {
   max-height: calc(100vh - 247px);
   overflow-y: auto;
   overflow-x: hidden;
 }
-/* cart item */
 .cart-item {
   display: flex;
   justify-content: space-around;
@@ -347,13 +273,10 @@ main .model {
   align-items: center;
   justify-content: center;
 }
-/* item info */
 .cart-item .item-info {
   flex: 1;
   background-color: rgba(255, 255, 255, 0.6);
-
   border-radius: 0 10px 10px 0;
-
   padding: 10px;
 }
 .cart-item .item-info:hover {
@@ -363,61 +286,47 @@ main .model {
 .cart-item .item-info img {
   width: 75px;
 }
-/* unit price */
 .cart-item .unit-price {
   flex: 1;
   font-size: 1.2rem;
 }
-/* units */
 .cart-item .units {
   flex: 1;
 }
 .cart-item .units .number {
   margin: 0 10px;
-
   font-size: 1.2rem;
 }
 .cart-item .units .btn {
   width: 20px;
   height: 20px;
-
-  background-color: rgb(242, 255, 58);
-
+  background-color: #FFA500;
   border-radius: 50%;
-
   font-weight: bold;
-
   cursor: pointer;
-
-  -webkit-user-select: none; /* Chrome all / Safari all */
-  -moz-user-select: none; /* Firefox all */
-  -ms-user-select: none; /* IE 10+ */
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none;
 }
-
-/* cart footer */
 .cart-footer {
   width: 100%;
   background-color: rgb(255, 21, 21);
   position: absolute;
   bottom: 0;
   left: 0;
-
   border-left: 1px solid rgb(var(--right-side-bg-color));
 }
 .cart-footer div {
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 15px 0;
-
   font-size: 1.3rem;
 }
 .cart-footer .subtotal {
   background-color: white;
 }
 .cart-footer .checkout {
-  background-color: rgb(242, 255, 58);
-
+  background-color: #FFA500;
   cursor: pointer;
 }
