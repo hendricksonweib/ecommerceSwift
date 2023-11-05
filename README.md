@@ -1,6 +1,6 @@
 ## 👨‍🏫Projeto
-**Tudo sobre o Swift** é um site é um site de ecommerce com intuito de estudo sobre localstorage.
-<br />
+**Tudo sobre o Swift** 
+Swift é um site de comércio eletrônico dedicado à venda de produtos eletrônicos e tem como objetivo principal servir como um ambiente de estudo em relação ao uso do localStorage. Esse mecanismo de armazenamento local no navegador da web permite a conservação de dados essenciais, tais como preferências de usuário e informações sobre carrinhos de compras, a fim de proporcionar uma experiência de compra personalizada e eficiente. Dessa forma, o site busca aprimorar a usabilidade e oferecer aos usuários a oportunidade de explorar produtos eletrônicos de alta qualidade.
 <br />
 
 
