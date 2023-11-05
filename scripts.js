@@ -86,6 +86,9 @@ const productsEl = document.querySelector('.products')
 const cartItemsEl = document.querySelector('.cart-items')
 const subtotalEl = document.querySelector('.subtotal')
 const totalItemsInCartEl = document.querySelector('.total-items-in-cart')
+const shoppingBag = document.querySelector('.shopping-bag')
+const cartList = document.querySelector('.cart')
+const back = document.querySelector('.back')
 
 function renderProducts (){
   products.forEach((product)=>{
@@ -198,3 +201,10 @@ function chanceNumerOfUnits(action, id){
 
   updateCart()
 }
+
+shoppingBag.addEventListener('click', function(){
+  cartList.style.display = "block"
+   back.addEventListener('click', function(){
+    cartList.style.display = "none"
+   })
+})
